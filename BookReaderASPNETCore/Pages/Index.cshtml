@@ -1,0 +1,27 @@
+﻿@page
+@using BookReader.Models
+@model BookReader.Pages.IndexModel
+
+
+@{ }
+<table>
+
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>ISBN</th>
+    </tr>
+    @foreach (Book b in Model.books)
+    {
+<tr>
+    <td>@b.Title</td>
+    <td>@b.Author</td>
+    <td>@b.Genre</td>
+    <td>@b.ISBN</td>
+</tr>
+ }
+
+    </table>
+
+
