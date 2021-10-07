@@ -1,22 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BookReader.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BookReader.Models;
 using BookReader.Data;
 
 namespace BookReader.Pages
 {
-    public class IndexModel : PageModel
+    public class DetailsModel : PageModel
     {
-        public List<Book> books = new List<Book>();
-
+        public Book book;
         public void OnGet()
         {
-            books = BookReaderRepository.Index();
+            book = BookReaderRepository.Details("1-86092-012-8");
         }
     }
 }
