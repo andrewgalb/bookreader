@@ -15,7 +15,6 @@ namespace BookReaderASP.NETCore.Pages
         public void OnGet()
         {
             book = BookReaderRepository.Details("1-86092-006-3");
-
         }
     }
 }
