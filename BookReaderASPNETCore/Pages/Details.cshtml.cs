@@ -12,9 +12,14 @@ namespace BookReader.Pages
     public class DetailsModel : PageModel
     {
         public Book book;
-        public void OnGet()
+
+        public void OnGet(string ISBN)
         {
-            book = BookReaderRepository.Details("1-86092-012-8");
+            book = BookReaderRepository.Details(ISBN);
+        }
+        public void OnPost()
+        {
+
         }
     }
 }
