@@ -11,10 +11,10 @@ namespace BookReaderASP.NETCore.Pages
 {
     public class UpdateModel : PageModel
     {
-        List<Book> books = new List<Book>();
-        public void OnGet()
+        public Book b;
+        public void OnGet(string ISBN)
         {
-            
+            b = BookReaderRepository.Details(ISBN);
         }
         public IActionResult OnPost(string ISBN, string Title, string Author, string Genre)
         {

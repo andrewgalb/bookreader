@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BookReader.Data;
 
 namespace BookReaderASP.NETCore.Pages
 {
     public class DeleteModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet(string ISBN)
         {
+            BookReaderRepository.Delete(ISBN);
+            return RedirectToPage("Index");
         }
     }
 }

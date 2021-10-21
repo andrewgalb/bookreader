@@ -64,6 +64,19 @@ namespace BookReader.Data
             return books;
         }
 
+        public static bool FindTrue(string ISBN)
+        {
+            bool x = false;
+            List<Book> books = ReadBooks();
+            if (FindBookInList(ISBN, books) != null)
+            {
+                x = true;
+            }
+            return x;
+
+            
+        }
+
         /// <summary>
         /// Reads in all book instances from file and prints out the details of the book with a certain ISBN number.
         /// </summary>

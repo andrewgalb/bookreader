@@ -15,7 +15,17 @@ namespace BookReader.Pages
 
         public void OnGet(string ISBN)
         {
-            book = BookReaderRepository.Details(ISBN);
+            try
+            {
+                book = BookReaderRepository.Details(ISBN);
+            }
+            catch (System.NullReferenceException)
+            {
+                book.Title = "Book Doesn't Exist";
+                book.ISBN = null;
+                book.Author = null;
+                book.Genre = null;
+            }
         }
         public void OnPost()
         {
