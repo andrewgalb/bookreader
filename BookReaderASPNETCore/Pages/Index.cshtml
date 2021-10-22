@@ -10,7 +10,7 @@
         }
     </style>
 
-    <table>
+    <table class="table">
         <tr>
             <th>Title</th>
             <th>Author</th>
@@ -32,9 +32,11 @@
     </table>
     <br />
     <form action="/Details" method="get">
-        Lookup Specific Book ISBN:
-        <input name="ISBN" id="ISBN" />
-        <button>Lookup</button>
+        <div class="mb-3">
+            <label class="form-label">Lookup Specific Book ISBN:</label>
+            <input name="ISBN" id="ISBN" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Lookup</button>
     </form>
     <a href="/Create">Create</a>
 }
