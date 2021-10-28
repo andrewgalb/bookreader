@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONTest", "JSONTest\JSONTest.csproj", "{1314312C-6F81-4FD3-B26C-2B87E67E2983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1314312C-6F81-4FD3-B26C-2B87E67E2983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1314312C-6F81-4FD3-B26C-2B87E67E2983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1314312C-6F81-4FD3-B26C-2B87E67E2983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1314312C-6F81-4FD3-B26C-2B87E67E2983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
