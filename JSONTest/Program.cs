@@ -47,7 +47,7 @@ namespace JSONTest
                 sw.WriteLine(output2);
             }
 
-            Person person1back = JsonConvert.DeserializeObject(output1);
+            Person person1back = JsonConvert.DeserializeObject<Person>(output1);
 
             Console.ReadKey();
         }
