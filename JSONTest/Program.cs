@@ -19,15 +19,37 @@ namespace JSONTest
             product.Price = 3.99M;
             product.Sizes = new string[] { "Small", "Medium", "Large" };
 
-            string output = JsonConvert.SerializeObject(product, Formatting.Indented);
 
-            Product deserializedProduct = JsonConvert.DeserializeObject<Product>(output);
+            Person person1 = new Person();
+            Person person2 = new Person();
 
-            using (StreamWriter sw = new StreamWriter("product.json"))
+            person1.Name = "Alex";
+            person1.Age = 30;
+            City city1 = new City();
+            city1.Name = "Washington DC";
+            city1.population = 1000000;
+            person1.City = city1;
+            person2.Name = "Johan";
+            person2.Age = 45;
+            City city2 = new City();
+            city2.Name = "New York";
+            city2.population = 2000000;
+            person2.City = city2;
+
+            string output1 = JsonConvert.SerializeObject(person1, Formatting.Indented);
+
+            string output2 = JsonConvert.SerializeObject(person2, Formatting.Indented);
+
+
+            using (StreamWriter sw = new StreamWriter("person.json"))
             {
-                sw.WriteLine(output);
+                sw.WriteLine(output1);
+                sw.WriteLine(output2);
             }
 
+            Person person1back = JsonConvert.DeserializeObject(output1);
+
+            Console.ReadKey();
         }
     }
     class Product
@@ -37,5 +59,16 @@ namespace JSONTest
         public decimal Price;
         public string[] Sizes;
 
+    }
+    class Person
+    {
+        public string Name;
+        public int Age;
+        public City City;
+    }
+    class City
+    {
+        public string Name;
+        public double population;
     }
 }
