@@ -22,16 +22,16 @@
                 <td>@b.Title</td>
                 <td>@b.Author</td>
                 <td>
-                    <a href="/Details?ISBN=@b.ISBN">Details</a>
-                    <a href="/Update?ISBN=@b.ISBN">Update</a>
-                    <a href="/Delete?ISBN=@b.ISBN">Delete</a>
+                    <a href="/User/Details?ISBN=@b.ISBN">Details</a>
+                    <a href="/User/Update?ISBN=@b.ISBN">Update</a>
+                    <a href="/User/Delete?ISBN=@b.ISBN">Delete</a>
                 </td>
             </tr>
         }
 
     </table>
     <br />
-    <form action="/Details" method="get">
+    <form action="/User/Details" method="get">
         <div class="mb-3">
             <label class="form-label">Lookup Specific Book ISBN:</label>
             <input name="ISBN" id="ISBN" class="form-control" />

@@ -13,7 +13,7 @@ namespace BookReaderASP.NETCore.Pages
         public IActionResult OnGet(string ISBN)
         {
             BookReaderRepository.Delete(ISBN);
-            return RedirectToPage("Index");
+            return RedirectToPage("User/Index");
         }
     }
 }
