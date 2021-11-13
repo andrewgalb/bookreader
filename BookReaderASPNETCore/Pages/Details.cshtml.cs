@@ -9,15 +9,15 @@ using BookReader.Data;
 
 namespace BookReader.Pages
 {
-    public class DetailsModel2 : PageModel
+    public class DetailsModel : PageModel
     {
-        public User u;
+        public Book book;
 
-        public void OnGet(string postAdress)
+        public void OnGet(string ISBN)
         {
-
-            u = UserRepository.Details(postAdress);
-
+          
+            book = BookReaderRepository.Details(ISBN);
+          
         }
     }
 }

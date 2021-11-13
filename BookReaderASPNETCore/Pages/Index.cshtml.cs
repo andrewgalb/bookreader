@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BookReader.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using BookReader.Models;
 using BookReader.Data;
 
 namespace BookReader.Pages
 {
-    public class DetailsModel2 : PageModel
+    public class IndexModel : PageModel
     {
-        public User u;
+        public List<Book> books = new();
 
-        public void OnGet(string postAdress)
+        public void OnGet()
         {
-
-            u = UserRepository.Details(postAdress);
-
+            books = BookReaderRepository.Index();
         }
     }
 }

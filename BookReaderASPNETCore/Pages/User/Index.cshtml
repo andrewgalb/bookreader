@@ -1,9 +1,8 @@
 ﻿@page
 @using BookReader.Models
-@model BookReader.Pages.IndexModel
-
-
+@model BookReader.Pages.IndexModel2
 @{
+
     <style>
         th, td {
             padding: 10px;
@@ -12,34 +11,29 @@
 
     <table class="table">
         <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
         </tr>
-        @foreach (Book b in Model.books)
-        {
-            <tr>
-                <td>@b.Title</td>
-                <td>@b.Author</td>
+        @foreach (User u in Model.users)
+	{
+		 <tr>
+             <td>@u.firstName</td>
+             <td>@u.lastName</td>
                 <td>
-                    <a href="/User/Details?ISBN=@b.ISBN">Details</a>
-                    <a href="/User/Update?ISBN=@b.ISBN">Update</a>
-                    <a href="/User/Delete?ISBN=@b.ISBN">Delete</a>
+                    <a href="/User/Details?postAdress=@u.postAdress">Details</a>
+                    <a href="/User/Update?postAdress=@u.postAdress">Update</a>
+                    <a href="/User/Delete?postAdress=@u.postAdress">Delete</a>
                 </td>
-            </tr>
-        }
-
-    </table>
-    <br />
+         </tr>
+	} 
+        </table>
+    <br/>
     <form action="/User/Details" method="get">
         <div class="mb-3">
             <label class="form-label">Lookup Specific Book ISBN:</label>
-            <input name="ISBN" id="ISBN" class="form-control" />
+            <input name="postAdress" id="postAdress" class="form-control" />
         </div>
         <button type="submit" class="btn btn-primary">Lookup</button>
     </form>
-    <a href="/Create">Create</a>
+    <a href="/User/Create">Create</a>
 }
-
-
-

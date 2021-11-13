@@ -4,20 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using BookReader.Models;
 using BookReader.Data;
 
-namespace BookReader.Pages
+namespace BookReaderASP.NETCore.Pages
 {
-    public class DetailsModel2 : PageModel
+    public class DeleteModel : PageModel
     {
-        public User u;
-
-        public void OnGet(string postAdress)
+        public IActionResult OnGet(string ISBN)
         {
-
-            u = UserRepository.Details(postAdress);
-
+            BookReaderRepository.Delete(ISBN);
+            return RedirectToPage("Index");
         }
     }
 }

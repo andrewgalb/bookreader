@@ -1,0 +1,21 @@
+﻿@page
+@using BookReader.Models
+@model BookReaderASP.NETCore.Pages.UpdateModel
+@{
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+    <form action="/Update" method="post">
+        ISBN number of book you want to update:
+        <input name="ISBN" id="ISBN" value="@Model.b.ISBN"/>
+        What Title Should the book have:
+        <input name="Title" id="Title" value="@Model.b.Title" />
+        Author Name:
+        <input name="Author" id="Author" value="@Model.b.Author" />
+        What Genre Should the book have:
+        <input name="Genre" id="Genre" value="@Model.b.Genre" />
+        <button>Update Book</button>
+    </form>
+}

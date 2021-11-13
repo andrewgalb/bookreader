@@ -8,15 +8,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Data;
 
+
 namespace BookReader.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel2 : PageModel
     {
-        public List<Book> books = new();
+        public List<User> users = new();
 
         public void OnGet()
         {
-            books = BookReaderRepository.Index();
+             users = UserRepository.Index();
         }
     }
 }

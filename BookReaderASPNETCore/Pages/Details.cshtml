@@ -1,0 +1,35 @@
+﻿@page
+@model BookReader.Pages.DetailsModel
+@{
+    if (@Model.book == null)
+    {
+        <p>File not found</p>
+    }
+    else
+    {
+        <style>
+            th, td {
+                padding: 10px;
+            }
+        </style>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>ISBN</th>
+            </tr>
+
+
+            <tr>
+                <td>@Model.book.Title</td>
+                <td>@Model.book.Author</td>
+                <td>@Model.book.Genre</td>
+                <td>@Model.book.ISBN</td>
+            </tr>
+
+
+        </table>
+    }
+
+}

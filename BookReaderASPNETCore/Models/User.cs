@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookReaderASP.NETCore.Models
+namespace BookReader.Models
 {
     public class User
     {
-        public string firstName;
-        public string lastName;
-        public string personNum;
-        public string eMail;
-        public string postAdress;
-        public string postNum;
-        public string city;
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string personNum { get; set; }
+        public string eMail { get; set; }
+        public string postAdress { get; set; }
+        public string postNum { get; set; }
+        public string city { get; set; }
+        public User(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.personNum = personNum;
+            this.eMail = eMail;
+            this.postAdress = postAdress;
+            this.postNum = postNum;
+            this.city = city;
+        }
     }
 }

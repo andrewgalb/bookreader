@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "garbo",
+    "personNum": "23",
+    "eMail": "lmao1@gmail.com",
+    "postAdress": "malmgatan 1",
+    "postNum": "56242",
+    "city": "Taberg"
+  },
+  {
+    "firstName": "Erik",
+    "lastName": "johanssen",
+    "personNum": "65",
+    "eMail": "lmao2@gmail.com",
+    "postAdress": "malmgatan 2",
+    "postNum": "56243",
+    "city": "Taberg"
+  },
+  {
+    "firstName": "John",
+    "lastName": "eriksson",
+    "personNum": "34",
+    "eMail": "lmao3@gmail.com",
+    "postAdress": "malmgatan 3",
+    "postNum": "56244",
+    "city": "Taberg"
+  },
+  {
+    "firstName": "greger",
+    "lastName": "jyjy",
+    "personNum": "greger",
+    "eMail": "rgergerg@gmail.com",
+    "postAdress": "malmgatan 4",
+    "postNum": "fewfwef",
+    "city": "fwefgewgweg"
+  }
+]

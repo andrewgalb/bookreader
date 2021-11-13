@@ -1,7 +1,7 @@
 ﻿@page
-@model BookReader.Pages.DetailsModel
+@model BookReader.Pages.DetailsModel2
 @{
-    if (@Model.book == null)
+    if (@Model.u == null)
     {
         <p>File not found</p>
     }
@@ -12,24 +12,29 @@
                 padding: 10px;
             }
         </style>
+
         <table class="table">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Genre</th>
-                <th>ISBN</th>
-            </tr>
-
 
             <tr>
-                <td>@Model.book.Title</td>
-                <td>@Model.book.Author</td>
-                <td>@Model.book.Genre</td>
-                <td>@Model.book.ISBN</td>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Personal Number</th>
+                <th>E-Mail</th>
+                <th>Post Adress</th>
+                <th>Post Number</th>
+                <th>City</th>
             </tr>
 
+            <tr>
+                <td>@Model.u.firstName</td>
+                <td>@Model.u.lastName</td>
+                <td>@Model.u.personNum</td>
+                <td>@Model.u.eMail</td>
+                <td>@Model.u.postAdress</td>
+                <td>@Model.u.postNum</td>
+                <td>@Model.u.city</td>
+            </tr>
 
         </table>
-    }
-
+        }
 }

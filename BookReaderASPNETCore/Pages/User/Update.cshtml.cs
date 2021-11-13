@@ -9,17 +9,19 @@ using BookReader.Data;
 
 namespace BookReaderASP.NETCore.Pages
 {
-    public class UpdateModel : PageModel
+    public class UpdateModel2 : PageModel
     {
-        public Book b;
-        public void OnGet(string ISBN)
+        public User u;
+        public void OnGet(string postAdress)
         {
-            b = BookReaderRepository.Details(ISBN);
+            
+            u = UserRepository.Details(postAdress);
         }
-        public IActionResult OnPost(string ISBN, string Title, string Author, string Genre)
+        public IActionResult OnPost(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
-            BookReaderRepository.Update(Title, Author, Genre, ISBN);
-            return RedirectToPage("User/Index");
+            
+            UserRepository.Update(firstName, lastName, personNum, eMail, postAdress, postNum, city);
+            return RedirectToPage("/User/Index");
         }
     }
 }

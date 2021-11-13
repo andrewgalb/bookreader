@@ -8,15 +8,15 @@ using BookReader.Data;
 
 namespace BookReaderASP.NETCore.Pages
 {
-    public class CreateModel : PageModel
+    public class CreateModel2 : PageModel
     {
         public void OnGet()
         {
         }
-        public IActionResult OnPost(string ISBN, string Title, string Author, string Genre)
+        public IActionResult OnPost(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
-            BookReaderRepository.Create(Title, Author, Genre, ISBN);
-            return RedirectToPage("User/Index");
+            UserRepository.Create(firstName, lastName, personNum, eMail, postAdress, postNum, city);
+            return RedirectToPage("/User/Index");
         }
     }
 }

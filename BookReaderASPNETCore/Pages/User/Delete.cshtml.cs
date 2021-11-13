@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Data;
 
-namespace BookReaderASP.NETCore.Pages
+namespace BookReaderASP.Pages.User
 {
     public class DeleteModel : PageModel
     {
-        public IActionResult OnGet(string ISBN)
+        public IActionResult OnGet(string postAdress)
         {
-            BookReaderRepository.Delete(ISBN);
-            return RedirectToPage("User/Index");
+            UserRepository.Delete(postAdress);
+            return RedirectToPage("/User/Index");
         }
     }
 }
