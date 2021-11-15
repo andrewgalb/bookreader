@@ -16,6 +16,7 @@ namespace BookReaderASP.NETCore.Pages
         {
             
             u = UserRepository.Details(postAdress);
+
         }
         public IActionResult OnPost(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
