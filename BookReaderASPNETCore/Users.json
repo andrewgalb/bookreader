@@ -9,15 +9,6 @@
     "city": "Taberg"
   },
   {
-    "firstName": "greger",
-    "lastName": "jyjy",
-    "personNum": "greger",
-    "eMail": "gregre",
-    "postAdress": "yur",
-    "postNum": "fewfwef",
-    "city": "fwefgewgweg"
-  },
-  {
     "firstName": "John",
     "lastName": "eriksson",
     "personNum": "34",
@@ -27,12 +18,12 @@
     "city": "Taberg"
   },
   {
-    "firstName": "greger",
-    "lastName": "jyjy",
-    "personNum": "greger",
-    "eMail": "gregre",
+    "firstName": "Theo",
+    "lastName": "Jonsson",
+    "personNum": "445135468451",
+    "eMail": "theo@gmail.com",
     "postAdress": "malmgatan 4",
-    "postNum": "fewfwef",
-    "city": "fwefgewgweg"
+    "postNum": "56242",
+    "city": "Taberg"
   }
 ]
