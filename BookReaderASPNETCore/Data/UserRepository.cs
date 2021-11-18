@@ -73,7 +73,9 @@ namespace BookReader.Data
         public static void Create(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
             List<User> users = ReadUsers();
-            users.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city));
+            int userID = 4;
+            users.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID.ToString()));
+            userID++;
             SaveUsers(users);
         }
         public static void Update(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)

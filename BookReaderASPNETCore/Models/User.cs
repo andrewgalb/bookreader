@@ -14,7 +14,9 @@ namespace BookReader.Models
         public string postAdress { get; set; }
         public string postNum { get; set; }
         public string city { get; set; }
-        public User(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
+
+        public string userID;
+        public User(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, string userID)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -23,6 +25,7 @@ namespace BookReader.Models
             this.postAdress = postAdress;
             this.postNum = postNum;
             this.city = city;
+            this.userID = userID;
         }
     }
 }

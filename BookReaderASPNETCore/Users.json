@@ -6,7 +6,8 @@
     "eMail": "lmao1@gmail.com",
     "postAdress": "malmgatan 1",
     "postNum": "56241",
-    "city": "Månsarp"
+    "city": "Månsarp",
+	"userID": "1"
   },
   {
     "firstName": "Oscar",
@@ -15,7 +16,8 @@
     "eMail": "lmao2@gmail.com",
     "postAdress": "malmgatan 2",
     "postNum": "56242",
-    "city": "Taberg"
+    "city": "Taberg",
+	"userID": "2"
   },
   {
     "firstName": "Theo",
@@ -24,6 +26,7 @@
     "eMail": "theo@gmail.com",
     "postAdress": "malmgatan 3",
     "postNum": "56243",
-    "city": "Taberg"
+    "city": "Taberg",
+	"userID": "3"
   }
 ]
