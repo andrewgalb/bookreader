@@ -1,0 +1,45 @@
+﻿@page
+@using BookReader.Models
+@model BookReaderASP.NETCore.Pages.Books.IndexModel
+
+
+@{
+    <style>
+        th, td {
+            padding: 10px;
+        }
+    </style>
+
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+        @foreach (Book b in Model.books)
+        {
+            <tr>
+                <td>@b.Title</td>
+                <td>@b.Author</td>
+                <td>
+                    <a href="/Details?ISBN=@b.ISBN">Details</a>
+                    <a href="/Update?ISBN=@b.ISBN">Update</a>
+                    <a href="/Delete?ISBN=@b.ISBN">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <form action="/User/Details" method="get">
+        <div class="mb-3">
+            <label class="form-label">Lookup Specific Book ISBN:</label>
+            <input name="ISBN" id="ISBN" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Lookup</button>
+    </form>
+    <a href="/Create">Create</a>
+}
+
+
+

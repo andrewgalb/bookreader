@@ -37,22 +37,22 @@ namespace BookReader.Data
             }
 
         }
-        static User FindUserInList(string postAdress, List<User> users)
+        static User FindUserInList(string userID, List<User> users)
         {
             for (int i = 0; i < users.Count; i++)
             {
-                if (users[i].postAdress == postAdress)
+                if (users[i].userID == userID)
                 {
                     return users[i];
                 }
             }
             return null;
         }
-        public static bool FindTrue(string postAdress)
+        public static bool FindTrue(string userID)
         {
             bool x = false;
             List<User> users = ReadUsers();
-            if (FindUserInList(postAdress, users) != null)
+            if (FindUserInList(userID, users) != null)
             {
                 x = true;
             }
@@ -64,24 +64,31 @@ namespace BookReader.Data
 
             return users;
         }
-        public static User Details(string postAdress)
+        public static User Details(string userID)
         {
             List<User> users = ReadUsers();
-            User u = FindUserInList(postAdress, users);
+            User u = FindUserInList(userID, users);
             return u;
         }
         public static void Create(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
+            int userID;
             List<User> users = ReadUsers();
-            int userID = 4;
-            users.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID.ToString()));
-            userID++;
-            SaveUsers(users);
+            for (int i = 1; i == Int32.Parse(users[i].userID); i++)
+            {
+                if (i != Int32.Parse(users[i].userID))
+                {
+                    userID = i;
+                    users.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID.ToString()));
+                    SaveUsers(users);
+                }
+            }
+            
         }
-        public static void Update(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
+        public static void Update(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, string userID)
         {
             List<User> users = ReadUsers();
-            User u = FindUserInList(postAdress, users);
+            User u = FindUserInList(userID, users);
 
             u.firstName = firstName;
             u.lastName = lastName;
@@ -93,10 +100,10 @@ namespace BookReader.Data
 
             SaveUsers(users);
         }
-        public static void Delete(string postAdress)
+        public static void Delete(string userID)
         {
             List<User> users = ReadUsers();
-            User u = FindUserInList(postAdress, users);
+            User u = FindUserInList(userID, users);
             users.Remove(u);
             SaveUsers(users);
         }

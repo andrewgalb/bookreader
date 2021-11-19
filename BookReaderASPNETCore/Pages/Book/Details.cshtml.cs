@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Models;
 using BookReader.Data;
 
-namespace BookReader.Pages
+namespace BookReaderASP.NETCore.Pages.Books
 {
     public class DetailsModel : PageModel
     {

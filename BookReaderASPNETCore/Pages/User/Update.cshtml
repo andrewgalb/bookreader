@@ -1,6 +1,6 @@
 ﻿@page
 @using BookReader.Models
-@model BookReaderASP.NETCore.Pages.UpdateModel2
+@model BookReaderASP.NETCore.Pages.Users.UpdateModel
 @{
 
     <style>
@@ -23,6 +23,8 @@
         <input name="postNum" id="postNum" value="@Model.u.postNum" />
         City:
         <input name="city" id="city" value="@Model.u.city" />
+        
+        <input name="userID" id="userID" value="@Model.u.userID" type="hidden"/>
         <button>Update User</button>
     </form>
 }

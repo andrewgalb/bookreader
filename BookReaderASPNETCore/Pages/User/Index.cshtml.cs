@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Data;
 
 
-namespace BookReader.Pages
+namespace BookReaderASP.NETCore.Pages.Users
 {
-    public class IndexModel2 : PageModel
+    public class IndexModel : PageModel
     {
         public List<User> users = new();
 

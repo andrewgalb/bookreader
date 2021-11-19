@@ -7,16 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Models;
 using BookReader.Data;
 
-namespace BookReader.Pages
+namespace BookReaderASP.NETCore.Pages.Users
 {
-    public class DetailsModel2 : PageModel
+    public class DetailsModel : PageModel
     {
         public User u;
 
-        public void OnGet(string postAdress)
+        public void OnGet(string userID)
         {
 
-            u = UserRepository.Details(postAdress);
+            u = UserRepository.Details(userID);
 
         }
     }

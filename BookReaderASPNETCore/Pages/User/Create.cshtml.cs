@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Data;
 
-namespace BookReaderASP.NETCore.Pages
+namespace BookReaderASP.NETCore.Pages.Users
 {
-    public class CreateModel2 : PageModel
+    public class CreateModel : PageModel
     {
         public void OnGet()
         {

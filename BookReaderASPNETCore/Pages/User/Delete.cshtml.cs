@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookReader.Data;
 
-namespace BookReaderASP.Pages.User
+namespace BookReaderASP.NETCore.Pages.Users
 {
     public class DeleteModel : PageModel
     {
