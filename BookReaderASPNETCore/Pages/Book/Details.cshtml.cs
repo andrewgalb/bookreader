@@ -13,10 +13,10 @@ namespace BookReaderASP.NETCore.Pages.Books
     {
         public Book book;
 
-        public void OnGet(string ISBN)
+        public void OnGet(string bookID)
         {
           
-            book = BookReaderRepository.Details(ISBN);
+            book = BookReaderRepository.Details(bookID);
           
         }
     }

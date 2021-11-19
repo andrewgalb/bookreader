@@ -10,9 +10,9 @@ namespace BookReaderASP.NETCore.Pages.Books
 {
     public class DeleteModel : PageModel
     {
-        public IActionResult OnGet(string ISBN)
+        public IActionResult OnGet(string bookID)
         {
-            BookReaderRepository.Delete(ISBN);
+            BookReaderRepository.Delete(bookID);
             return RedirectToPage("Index");
         }
     }

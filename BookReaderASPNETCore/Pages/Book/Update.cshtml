@@ -7,7 +7,7 @@
             display: block;
         }
     </style>
-    <form action="/Update" method="post">
+    <form action="/Book/Update" method="post">
         ISBN number of book you want to update:
         <input name="ISBN" id="ISBN" value="@Model.b.ISBN"/>
         What Title Should the book have:
@@ -16,6 +16,7 @@
         <input name="Author" id="Author" value="@Model.b.Author" />
         What Genre Should the book have:
         <input name="Genre" id="Genre" value="@Model.b.Genre" />
+        <input name="bookID" id="bookID" value="@Model.b.bookID" type="hidden"/>
         <button>Update Book</button>
     </form>
 }

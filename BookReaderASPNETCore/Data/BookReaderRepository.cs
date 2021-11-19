@@ -23,9 +23,11 @@ namespace BookReader.Data
                     string author = sr.ReadLine();
                     string genre = sr.ReadLine();
                     string isbn = sr.ReadLine();
+                    string bookID = sr.ReadLine();
 
                     //  Book book1 = new Book(title, author, genre, isbn);
-                    books.Add(new Book(title, author, genre, isbn));
+
+                    books.Add(new Book(title, author, genre, isbn, bookID));
                 }
             }
             return books;
@@ -42,11 +44,11 @@ namespace BookReader.Data
             }
         }
 
-        static Book FindBookInList(string ISBN, List<Book> books)
+        static Book FindBookInList(string bookID, List<Book> books)
         {
             for (int i = 0; i < books.Count; i++)
             {
-                if (books[i].ISBN == ISBN)
+                if (books[i].bookID == bookID)
                 {
                     return books[i];
                 }
@@ -64,11 +66,11 @@ namespace BookReader.Data
             return books;
         }
 
-        public static bool FindTrue(string ISBN)
+        public static bool FindTrue(string bookID)
         {
             bool x = false;
             List<Book> books = ReadBooks();
-            if (FindBookInList(ISBN, books) != null)
+            if (FindBookInList(bookID, books) != null)
             {
                 x = true;
             }
@@ -81,10 +83,10 @@ namespace BookReader.Data
         /// Reads in all book instances from file and prints out the details of the book with a certain ISBN number.
         /// </summary>
         /// <param name="ISBN"></param>
-        public static Book Details(string ISBN)
+        public static Book Details(string bookID)
         {
             List<Book> books = ReadBooks();
-            Book b = FindBookInList(ISBN, books);
+            Book b = FindBookInList(bookID, books);
             return b;
         }
 
@@ -97,9 +99,19 @@ namespace BookReader.Data
         /// <param name="ISBN"></param>
         public static void Create(string Title, string Author, string Genre, string ISBN)
         {
+            int bookID;
             List<Book> books = ReadBooks();
-            books.Add(new Book(Title, Author, Genre, ISBN));
-            SaveBooks(books);
+            for (int i = 1; i == Int32.Parse(books[i].bookID); i++)
+            {
+                if (i != Int32.Parse(books[i].bookID))
+                {
+                    bookID = i;
+                    books.Add(new Book(Title, Author, Genre, ISBN, bookID.ToString()));
+                    SaveBooks(books);
+                }
+            }
+            
+            
         }
 
 
@@ -110,15 +122,16 @@ namespace BookReader.Data
         /// <param name="Author"></param>
         /// <param name="Genre"></param>
         /// <param name="ISBN"></param>
-        public static void Update(string Title, string Author, string Genre, string ISBN)
+        public static void Update(string Title, string Author, string Genre, string ISBN, string bookID)
         {
             List<Book> books = ReadBooks();
-            Book b = FindBookInList(ISBN, books);
+            Book b = FindBookInList(bookID, books);
 
             b.Title = Title;
             b.Author = Author;
             b.Genre = Genre;
             b.ISBN = ISBN;
+            
 
             SaveBooks(books);
         }
@@ -127,10 +140,10 @@ namespace BookReader.Data
         ///  Reads in all book instances from file, then deletes the book with a certain ISBN number, then saves all book instances.
         /// </summary>
         /// <param name="ISBN"></param>
-        public static void Delete(string ISBN)
+        public static void Delete(string bookID)
         {
             List<Book> books = ReadBooks();
-            Book b = FindBookInList(ISBN, books);
+            Book b = FindBookInList(bookID, books);
             books.Remove(b);
             SaveBooks(books);
         }

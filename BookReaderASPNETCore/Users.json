@@ -1,32 +1,32 @@
 [
   {
-    "userID": "1",
     "firstName": "John",
     "lastName": "Johansson",
     "personNum": "23432423",
     "eMail": "lmao1@gmail.com",
     "postAdress": "malmgatan 1",
     "postNum": "56241",
-    "city": "Månsarp"
+    "city": "Månsarp",
+	"userID": "1"
   },
   {
-    "userID": "2",
     "firstName": "Oscar",
     "lastName": "Eriksson",
     "personNum": "344532523",
     "eMail": "lmao2@gmail.com",
     "postAdress": "malmgatan 2",
     "postNum": "56242",
-    "city": "Taberg"
+    "city": "Taberg",
+	"userID": "2"
   },
   {
-    "userID": "3",
     "firstName": "Theo",
     "lastName": "Jonsson",
     "personNum": "445135468451",
     "eMail": "theo@gmail.com",
-    "postAdress": "malmgatan 4",
+    "postAdress": "malmgatan 3",
     "postNum": "56243",
-    "city": "Taberg"
+    "city": "Taberg",
+	"userID": "3"
   }
 ]

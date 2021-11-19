@@ -12,14 +12,14 @@ namespace BookReaderASP.NETCore.Pages.Books
     public class UpdateModel : PageModel
     {
         public Book b;
-        public void OnGet(string ISBN)
+        public void OnGet(string bookID)
         {
-            b = BookReaderRepository.Details(ISBN);
+            b = BookReaderRepository.Details(bookID);
         }
-        public IActionResult OnPost(string ISBN, string Title, string Author, string Genre)
+        public IActionResult OnPost(string ISBN, string Title, string Author, string Genre, string bookID)
         {
-            BookReaderRepository.Update(Title, Author, Genre, ISBN);
-            return RedirectToPage("User/Index");
+            BookReaderRepository.Update(Title, Author, Genre, ISBN, bookID);
+            return RedirectToPage("/Book/Index");
         }
     }
 }
