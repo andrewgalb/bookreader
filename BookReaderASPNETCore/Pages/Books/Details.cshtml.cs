@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookReader.Data;
-using BookReader.Models;
+using Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Library.Data;
 
-namespace BookReaderASP.NETCore.Pages
+namespace Library.Pages.Books
 {
     public class DetailsModel : PageModel
     {
         public Book book;
-        public void OnGet()
+        public void OnGet(string ISBN)
         {
-            book = BookReaderRepository.Details("1-86092-006-3");
+            book = BookRepository.Details(ISBN);
         }
     }
 }

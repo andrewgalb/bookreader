@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookReaderASP.NETCore", "BookReaderASPNETCore\BookReaderASP.NETCore.csproj", "{C9B9623A-3F21-4440-8627-305E9D487C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "BookReaderASPNETCore\Library.csproj", "{C9B9623A-3F21-4440-8627-305E9D487C3D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookReaderConsole", "BookReaderConsole\BookReaderConsole.csproj", "{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSONTest", "JSONTest\JSONTest.csproj", "{9A0D44E7-2E6F-41F6-93D7-C3FF694DF456}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06BE24F5-F4A5-4905-8A1C-1552AAE0FD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0D44E7-2E6F-41F6-93D7-C3FF694DF456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0D44E7-2E6F-41F6-93D7-C3FF694DF456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0D44E7-2E6F-41F6-93D7-C3FF694DF456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0D44E7-2E6F-41F6-93D7-C3FF694DF456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

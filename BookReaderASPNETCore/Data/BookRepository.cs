@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using BookReader.Models;
+using Library.Models;
 
-namespace BookReader.Data
+namespace Library.Data
 {
-    class BookReaderRepository
+    class BookRepository
     {
 
         static List<Book> ReadBooks()

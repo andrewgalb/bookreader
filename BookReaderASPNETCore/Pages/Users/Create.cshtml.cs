@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BookReaderASP.NETCore.Pages
+namespace Library.Pages.Users
 {
-    public class Form_testModel : PageModel
+    public class CreateModel : PageModel
     {
-
+        public void OnGet()
+        {
+        }
     }
 }

@@ -1,0 +1,38 @@
+﻿@page
+@using Library.Models
+@model Library.Pages.Books.IndexModel
+
+<a href="./Books/Create">Create New Book</a>
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th></th>
+    </tr>
+    @foreach (Book b in Model.books)
+    {
+        <tr>
+            <td>@b.Title</td>
+            <td>@b.Author</td>
+            <td>
+                <a href="./Books/Details?ISBN=@b.ISBN">Details</a>
+                <a href="./Books/Update?ISBN=@b.ISBN">Update</a>
+                <a href="./Books/Delete?ISBN=@b.ISBN">Delete</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<form action="./Books/Details" method="get">
+    <div class="mb-3">
+        <input class="form-control" type="text" name="ISBN" />
+    </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+

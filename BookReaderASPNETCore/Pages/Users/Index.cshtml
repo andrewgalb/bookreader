@@ -1,0 +1,44 @@
+﻿@page
+@using Library.Models
+@model Library.Pages.Users.IndexModel
+
+
+@{ 
+    
+}
+
+<a href="./Users/Create">Create New User</a>
+
+<table class="table">
+
+    <tr>
+        <th>First Name</th>
+        <th>Surname</th>
+        <th>SSN</th>
+    </tr>
+    @foreach (User u in Model.users)
+    {
+<tr>
+    <td>@u.FirstName</td>
+    <td>@u.Surname</td>
+    <td>@u.SSN</td>
+    <td>
+        <a href="./Users/Details?SSN=@u.SSN">Details</a>
+        <a href="./Users/Update?SSN=@u.SSN">Update</a>
+        <a href="./Users/Delete?SSN=@u.SSN">Delete</a>
+    </td>
+
+</tr>
+    }
+
+</table>
+
+<form action="./Users/Details" method="get">
+    <div class="mb-3">
+        <input class="form-control" type="text" name="ISBN" />
+    </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+
