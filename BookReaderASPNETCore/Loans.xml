@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-
-<lmaoxd>
-
-</lmaoxd>
+<ArrayOfLoan>
+  <Loan>
+    <firstName>Theo</firstName>
+	<lastName>Jonsson</lastName>
+    <startDate>2021-09-25T00:00:00</startDate>
+    <endDate>2021-11-25T00:00:00</endDate>
+	<loanID>1</loanID>
+	<bookISBN>123123-321321-23</bookISBN>
+  </Loan>
+</ArrayOfLoan>

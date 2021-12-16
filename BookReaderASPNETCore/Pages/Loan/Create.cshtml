@@ -1,0 +1,18 @@
+﻿@page
+@model BookReaderASP.NETCore.Pages.Loans.CreateModel
+@{
+    <style>        
+        input {
+            display: block;
+        }
+    </style>
+    <form action="/Loan/Create" method="post">
+        First name:
+        <input name="firstName" id="firstName"/>
+        Last Name:
+        <input name="lastName" id="lastName" />
+        Book ISBN:
+        <input name="ISBN" id="ISBN" />
+        <button>Loan Book</button>
+    </form>
+}

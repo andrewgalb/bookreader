@@ -1,0 +1,18 @@
+﻿@page
+@using BookReader.Models
+@model BookReaderASP.NETCore.Pages.Loans.UpdateModel
+@{
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+    <form action="/Loan/Update" method="post">
+        Your First Name:
+        <input name="firstName" id="firstName" value="@Model.l.firstName" />
+        Your Last Name:
+        <input name="lastName" id="lastName" value="@Model.l.lastName" />
+        <input name="bookID" id="bookID" value="@Model.l.loanID" type="hidden"/>
+        <button>Update Loan</button>
+    </form>
+}
