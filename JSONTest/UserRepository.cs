@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using Library.Models;
 
-namespace Library.Data
+namespace JSONTest
 {
     class UserRepository
     {
