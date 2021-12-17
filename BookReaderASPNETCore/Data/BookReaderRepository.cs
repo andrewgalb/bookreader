@@ -39,7 +39,7 @@ namespace BookReader.Data
             {
                 for (int i = 0; i < books.Count; i++)
                 {
-                    sw.WriteLine("{0}\n{1}\n{2}\n{3}", books[i].Title, books[i].Author, books[i].Genre, books[i].ISBN);
+                    sw.WriteLine("{0}\n{1}\n{2}\n{3}", books[i].Title, books[i].Author, books[i].Genre, books[i].ISBN, books[i].bookID);
                 }
             }
         }
