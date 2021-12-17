@@ -13,7 +13,7 @@ namespace BookReaderASP.NETCore.Pages.Loans
     {
         public Loan loan;
 
-        public void OnGet(int loanID)
+        public void OnGet(Guid loanID)
         {
 
             loan = LoanRepository.Details(loanID);

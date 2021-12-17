@@ -10,9 +10,9 @@ namespace BookReaderASP.NETCore.Pages.Loans
 {
     public class DeleteModel : PageModel
     {
-        public IActionResult OnGet(string loanID)
+        public IActionResult OnGet(Guid loanID)
         {
-            BookReaderRepository.Delete(loanID);
+            LoanRepository.Delete(loanID);
             return RedirectToPage("/Loan/Index");
         }
     }

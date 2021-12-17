@@ -19,13 +19,13 @@ namespace BookReader.Models
         [XmlElement("endDate")]
         public DateTime endDate { get; set; }
         [XmlElement("loanID")]
-        public int loanID { get; set; }
+        public Guid loanID { get; set; }
         [XmlElement("bookISBN")]
-        public int bookISBN { get; set; }
+        public string bookISBN { get; set; }
 
         public Loan() { }
 
-        public Loan(string firstName, string lastName, DateTime startDate, DateTime endDate, int loanID, int bookISBN)
+        public Loan(string firstName, string lastName, DateTime startDate, DateTime endDate, Guid loanID, string bookISBN)
         {
 
             this.firstName = firstName;

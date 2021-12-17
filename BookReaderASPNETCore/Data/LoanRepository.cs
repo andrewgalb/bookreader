@@ -35,7 +35,7 @@ namespace BookReader.Data
         }
         static void SaveLoans(List<Loan> loans)
         {
-            string fileName = "users.json";
+            string fileName = "Loans.xml";
 
             if (File.Exists(fileName))
             {
@@ -49,7 +49,7 @@ namespace BookReader.Data
             }
 
         }
-        static Loan FindLoanInList(int loanID, List<Loan> loans)
+        static Loan FindLoanInList(Guid loanID, List<Loan> loans)
         {
             for (int i = 0; i < loans.Count; i++)
             {
@@ -60,7 +60,7 @@ namespace BookReader.Data
             }
             return null;
         }
-        public static bool FindTrue(int loanID)
+        public static bool FindTrue(Guid loanID)
         {
             bool x = false;
             List<Loan> loans = ReadLoans();
@@ -77,30 +77,28 @@ namespace BookReader.Data
 
             return loans;
         }
-        public static Loan Details(int loanID)
+        public static Loan Details(Guid loanID)
         {
             List<Loan> loans = ReadLoans();
             Loan l = FindLoanInList(loanID, loans);
             return l;
         }
-        public static void Create(string firstName, string lastName, int bookISBN)
+        public static void Create(string firstName, string lastName, string bookISBN)
         {
-            int loanID;
+            Guid loanID;
             DateTime startDate = DateTime.Now;
             DateTime endDate = startDate.AddMonths(1);
             List<Loan> loans = ReadLoans();
-            for (int i = 1; i == loans[i].loanID; i++)
-            {
-                if (i != loans[i].loanID)
-                {
-                    loanID = i;
-                    loans.Add(new Loan(firstName, lastName, startDate, endDate, loanID, bookISBN));
-                    SaveLoans(loans);
-                }
-            }
+
+            System.Guid guid = System.Guid.NewGuid();
+
+            loanID = guid;
+
+            loans.Add(new Loan(firstName, lastName, startDate, endDate, loanID, bookISBN));
+            SaveLoans(loans);
 
         }
-        public static void Update(string firstName, string lastName, int loanID)
+        public static void Update(string firstName, string lastName, Guid loanID)
         {
             List<Loan> loans = ReadLoans();
             Loan l = FindLoanInList(loanID, loans);
@@ -111,7 +109,7 @@ namespace BookReader.Data
 
             SaveLoans(loans);
         }
-        public static void Delete(int loanID)
+        public static void Delete(Guid loanID)
         {
             List<Loan> loans = ReadLoans();
             Loan l = FindLoanInList(loanID, loans);

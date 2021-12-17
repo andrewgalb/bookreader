@@ -12,8 +12,8 @@
 
     <table class="table">
         <tr>
-            <th>Title</th>
-            <th>Author</th>
+            <th>First Name</th>
+            <th>Book ISBN</th>
             <th></th>
         </tr>
         @foreach (Loan l in Model.loans)
@@ -22,9 +22,9 @@
                 <td>@l.firstName</td>
                 <td>@l.bookISBN</td>
                 <td>
-                    <a href="/Book/Details?bookID=@l.loanID">Details</a>
-                    <a href="/Book/Update?bookID=@l.loanID">Update</a>
-                    <a href="/Book/Delete?bookID=@l.loanID">Delete</a>
+                    <a href="/Loan/Details?loanID=@l.loanID">Details</a>
+                    <a href="/Loan/Update?loanID=@l.loanID">Update</a>
+                    <a href="/Loan/Delete?loanID=@l.loanID">Delete</a>
                 </td>
             </tr>
         }
@@ -38,7 +38,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Lookup</button>
     </form>
-    <a href="/Loan/Create">Create</a>
 }
 
 

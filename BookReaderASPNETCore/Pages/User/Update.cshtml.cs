@@ -12,13 +12,13 @@ namespace BookReaderASP.NETCore.Pages.Users
     public class UpdateModel : PageModel
     {
         public User u;
-        public void OnGet(string userID)
+        public void OnGet(Guid userID)
         {
             
             u = UserRepository.Details(userID);
 
         }
-        public IActionResult OnPost(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, string userID)
+        public IActionResult OnPost(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, Guid userID)
         {
             
             UserRepository.Update(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID);

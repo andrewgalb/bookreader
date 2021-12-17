@@ -12,11 +12,11 @@ namespace BookReaderASP.NETCore.Pages.Loans
     public class UpdateModel : PageModel
     {
         public Loan l;
-        public void OnGet(int loanID)
+        public void OnGet(Guid loanID)
         {
             l = LoanRepository.Details(loanID);
         }
-        public IActionResult OnPost(string firstName, string lastName, DateTime startDate, DateTime endDate, int loanID, int bookISBN)
+        public IActionResult OnPost(string firstName, string lastName, DateTime startDate, DateTime endDate, Guid loanID, int bookISBN)
         {
             LoanRepository.Update(firstName, lastName, loanID);
             return RedirectToPage("/Loan/Index");

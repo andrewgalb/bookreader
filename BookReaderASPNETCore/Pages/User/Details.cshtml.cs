@@ -13,7 +13,7 @@ namespace BookReaderASP.NETCore.Pages.Users
     {
         public User u;
 
-        public void OnGet(string userID)
+        public void OnGet(Guid userID)
         {
 
             u = UserRepository.Details(userID);

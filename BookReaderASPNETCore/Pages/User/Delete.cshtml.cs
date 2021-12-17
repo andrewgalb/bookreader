@@ -10,9 +10,9 @@ namespace BookReaderASP.NETCore.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        public IActionResult OnGet(string postAdress)
+        public IActionResult OnGet(Guid userID)
         {
-            UserRepository.Delete(postAdress);
+            UserRepository.Delete(userID);
             return RedirectToPage("/User/Index");
         }
     }
