@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONTest", "JSONTest\JSONTest.csproj", "{1314312C-6F81-4FD3-B26C-2B87E67E2983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTest", "XMLTest\XMLTest.csproj", "{86FC60C2-5CB0-4509-ABB2-69FBEA4FEC54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XMLTest", "XMLTest\XMLTest.csproj", "{86FC60C2-5CB0-4509-ABB2-69FBEA4FEC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL", "SQL\SQL.csproj", "{4071C48E-13E7-4934-B0A1-597BD35E960D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{86FC60C2-5CB0-4509-ABB2-69FBEA4FEC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86FC60C2-5CB0-4509-ABB2-69FBEA4FEC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86FC60C2-5CB0-4509-ABB2-69FBEA4FEC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4071C48E-13E7-4934-B0A1-597BD35E960D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4071C48E-13E7-4934-B0A1-597BD35E960D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4071C48E-13E7-4934-B0A1-597BD35E960D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4071C48E-13E7-4934-B0A1-597BD35E960D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
