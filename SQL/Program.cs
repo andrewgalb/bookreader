@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
-using SQL;
+using SQL.Method;
 
 namespace SQL
 {
@@ -8,18 +8,49 @@ namespace SQL
     {
         static void Main(string[] args)
         {
-            SqlConnection conn;
-
             string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            conn = new SqlConnection(connString);
+
+            string insQuery = "INSERT INTO Products (ProductName, UnitPrice) VALUES('TESTTHING', '9999999')";
+
+            string selectQuery = "SELECT ProductID, ProductName, UnitPrice FROM Products ORDER BY UnitPrice DESC";
+
+            string delQuery = "DELETE FROM Products WHERE ProductName = 'TESTTHING'";
+
+            string action;
+
+            Console.WriteLine("Do you want to read the data (Write 1), insert new data (Write 2), Delete data (Write 3), Update data (Write 4)");
+
+            string userInput = Console.ReadLine();
+
+            switch (userInput)
+            {
+                case "1":
+                    Methods.SELECT(connString, selectQuery);
+                    break;
+                case "2":
+                    action = "Inserted";
+                    Methods.INSDELUPD(connString, insQuery, action);
+                    break;
+                case "3":
+                    action = "Deleted";
+                    Methods.INSDELUPD(connString, insQuery, action);
+                    break;
+                case "4":
+                    Console.WriteLine("What product name do you want?");
+                    string whatUpdateName = Console.ReadLine();
+                    Console.WriteLine("What price do you want?");
+                    string whatUpdateNum = Console.ReadLine();
+
+                    string whatUpdate = "UPDATE Products (ProductName) VALUES('') =  VALUE";
+                    action = "Updated";
+                    Methods.INSDELUPD(connString, insQuery, action);
+                    break;
+            }
 
 
-            conn.Open();
 
-            Console.WriteLine("Conn open");
 
-            conn.Close();
 
         }
     }
