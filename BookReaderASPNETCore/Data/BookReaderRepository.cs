@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using BookReader.Models;
+using System.Data.SqlClient;
 
 namespace BookReader.Data
 {
@@ -13,28 +14,75 @@ namespace BookReader.Data
 
         static List<Book> ReadBooks()
         {
+            string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string query = "SELECT Title, Author, Genre, ISBN, BookId FROM Books ORDER BY BookId";
             List<Book> books = new List<Book>();
-
-            using (StreamReader sr = new StreamReader("Books.txt"))
+            using (SqlConnection connection = new SqlConnection(connString))
             {
-                while (!sr.EndOfStream)
+                using (SqlCommand commandTwo = new SqlCommand(query, connection))
                 {
-                    string title = sr.ReadLine();
-                    string author = sr.ReadLine();
-                    string genre = sr.ReadLine();
-                    string isbn = sr.ReadLine();
-                    string bookID = sr.ReadLine();
+                    try
+                    {
+                        connection.Open();
 
-                    //  Book book1 = new Book(title, author, genre, isbn);
+                        using (SqlDataReader reader = commandTwo.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string title = reader.GetString(0);
+                                string author = reader.GetString(1);
+                                string genre = reader.GetString(2);
+                                string isbn = reader.GetString(3);
+                                string bookID = reader.GetInt32(4).ToString();
 
-                    books.Add(new Book(title, author, genre, isbn, bookID));
+                                //  Book book1 = new Book(title, author, genre, isbn);
+
+                                books.Add(new Book(title, author, genre, isbn, bookID));
+                            }
+                            return books;
+                        }
+
+                    }
+                    catch (SqlException e)
+                    {
+                        Console.WriteLine("Error: " + e.ToString());
+                        return books;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
-            return books;
+
         }
+
+
 
         static void SaveBooks(List<Book> books)
         {
+            string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            string query = "INSERT INTO Books (Title, Author, Genre, ISBN) VALUES('";
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+
+                SqlCommand commandOne = new SqlCommand(query, connection);
+                try
+                {
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
             using (StreamWriter sw = new StreamWriter("Books.txt"))
             {
                 for (int i = 0; i < books.Count; i++)
@@ -99,19 +147,30 @@ namespace BookReader.Data
         /// <param name="ISBN"></param>
         public static void Create(string Title, string Author, string Genre, string ISBN)
         {
-            int bookID;
-            List<Book> books = ReadBooks();
-            for (int i = 1; i == Int32.Parse(books[i].bookID); i++)
+            string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            string query = "INSERT INTO Books (Title, Author, Genre, ISBN) VALUES('"+Title+"', '"+Author+"', '"+Genre+"', '"+ISBN+"')";
+            using (SqlConnection connection = new SqlConnection(connString))
             {
-                if (i != Int32.Parse(books[i].bookID))
+
+                SqlCommand commandOne = new SqlCommand(query, connection);
+                try
                 {
-                    bookID = i;
-                    books.Add(new Book(Title, Author, Genre, ISBN, bookID.ToString()));
-                    SaveBooks(books);
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
                 }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
             }
-            
-            
+
+
         }
 
 
@@ -124,16 +183,28 @@ namespace BookReader.Data
         /// <param name="ISBN"></param>
         public static void Update(string Title, string Author, string Genre, string ISBN, string bookID)
         {
-            List<Book> books = ReadBooks();
-            Book b = FindBookInList(bookID, books);
+            string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-            b.Title = Title;
-            b.Author = Author;
-            b.Genre = Genre;
-            b.ISBN = ISBN;
-            
+            string query = "UPDATE Books SET Title = " + Title + ", Author = " + Author + ", Genre = " + Genre + ", ISBN = " + ISBN + "WHERE BookId = " + bookID;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
 
-            SaveBooks(books);
+                SqlCommand commandOne = new SqlCommand(query, connection);
+                try
+                {
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
         }
 
         /// <summary>

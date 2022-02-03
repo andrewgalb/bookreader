@@ -34,17 +34,19 @@ namespace SQL
                     break;
                 case "3":
                     action = "Deleted";
-                    Methods.INSDELUPD(connString, insQuery, action);
+                    Methods.INSDELUPD(connString, delQuery, action);
                     break;
                 case "4":
                     Console.WriteLine("What product name do you want?");
                     string whatUpdateName = Console.ReadLine();
                     Console.WriteLine("What price do you want?");
                     string whatUpdateNum = Console.ReadLine();
+                    Console.WriteLine("What productID do you want to update?");
+                    string whatUpdateID = Console.ReadLine();
 
-                    string whatUpdate = "UPDATE Products (ProductName) VALUES('') =  VALUE";
+                    string whatUpdate = "UPDATE Products SET ProductName = " + whatUpdateName + ", UnitPrice = " + whatUpdateNum + "WHERE ProductID = " + whatUpdateID;
                     action = "Updated";
-                    Methods.INSDELUPD(connString, insQuery, action);
+                    Methods.INSDELUPD(connString, whatUpdate, action);
                     break;
             }
 
