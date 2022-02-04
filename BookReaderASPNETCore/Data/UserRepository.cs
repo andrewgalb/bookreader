@@ -6,25 +6,59 @@ using System.Threading.Tasks;
 using System.IO;
 using BookReader.Models;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
 
 namespace BookReader.Data
 {
     public class UserRepository
     {
+        static string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         static List<User> ReadUsers()
         {
-            string fileName = "users.json";
-
-            if (File.Exists(fileName))
+            string query = "SELECT UserId, FirstName, LastName, PersonNum, Email, PostAdress, PostNum, City FROM Users ORDER BY UserId";
+            List<User> user = new List<User>();
+            using (SqlConnection connection = new SqlConnection(connString))
             {
+                using (SqlCommand commandTwo = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
 
-                var users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(fileName));
+                        using (SqlDataReader reader = commandTwo.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Guid userID = reader.GetGuid(0);
+                                string firstName = reader.GetString(1);
+                                string lastName = reader.GetString(2);
+                                string personNum = reader.GetString(3);
+                                string eMail = reader.GetString(4);
+                                string postAdress = reader.GetString(5);
+                                string postNum = reader.GetString(6);
+                                string city = reader.GetString(7);
 
-                return users;
+                                //  Book book1 = new Book(title, author, genre, isbn);
+
+                                user.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID));
+                            }
+                            return user;
+                        }
+
+                    }
+                    catch (SqlException e)
+                    {
+                        Console.WriteLine("Error: " + e.ToString());
+                        return user;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
             }
-
-            return null;
         }
+
         static void SaveUsers(List<User> users)
         {
             string fileName = "users.json";

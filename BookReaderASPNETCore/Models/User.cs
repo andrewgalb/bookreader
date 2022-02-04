@@ -15,7 +15,7 @@ namespace BookReader.Models
         public string postNum { get; set; }
         public string city { get; set; }
 
-        public Guid userID;
+        public Guid userID { get; set; }
         public User(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, Guid userID)
         {
             this.firstName = firstName;
