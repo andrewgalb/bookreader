@@ -13,7 +13,11 @@ namespace BookReader.Data
     {
         static string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        static List<Book> ReadBooks()
+
+        /// <summary>
+        /// Reads in all book instances from file and prints these out in a nice list.
+        /// </summary>
+        public static List<Book> Index()
         {
             string query = "SELECT Title, Author, Genre, ISBN, BookId FROM Books ORDER BY BookId";
             List<Book> books = new List<Book>();
@@ -54,17 +58,6 @@ namespace BookReader.Data
                     }
                 }
             }
-
-        }
-
-        /// <summary>
-        /// Reads in all book instances from file and prints these out in a nice list.
-        /// </summary>
-        public static List<Book> Index()
-        {
-            List<Book> books = ReadBooks();
-
-            return books;
         }
 
         /// <summary>
@@ -159,7 +152,6 @@ namespace BookReader.Data
         /// <param name="ISBN"></param>
         public static void Update(string Title, string Author, string Genre, string ISBN, string bookID)
         {
-
             string query = $"UPDATE Books SET Title = '{Title}', Author = '{Author}', Genre = '{Genre}', ISBN = '{ISBN}'WHERE BookId = {bookID}";
 
             using (SqlConnection connection = new SqlConnection(connString))

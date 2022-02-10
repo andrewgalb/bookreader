@@ -13,7 +13,7 @@ namespace BookReader.Data
     public class UserRepository
     {
         static string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Library;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        static List<User> ReadUsers()
+        public static List<User> Index()
         {
             string query = "SELECT UserId, FirstName, LastName, PersonNum, Email, PostAdress, PostNum, City FROM Users ORDER BY UserId";
             List<User> user = new List<User>();
@@ -58,87 +58,122 @@ namespace BookReader.Data
                 }
             }
         }
-
-        static void SaveUsers(List<User> users)
-        {
-            string fileName = "users.json";
-
-            if(File.Exists(fileName))
-            {
-                var jsonObject = JsonConvert.SerializeObject(users, Formatting.Indented);
-
-                File.WriteAllText(fileName, jsonObject);
-            }
-
-        }
-        static User FindUserInList(Guid userID, List<User> users)
-        {
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].userID == userID)
-                {
-                    return users[i];
-                }
-            }
-            return null;
-        }
-        public static bool FindTrue(Guid userID)
-        {
-            bool x = false;
-            List<User> users = ReadUsers();
-            if (FindUserInList(userID, users) != null)
-            {
-                x = true;
-            }
-            return x;
-        }
-        public static List<User> Index()
-        {
-            List<User> users = ReadUsers();
-
-            return users;
-        }
         public static User Details(Guid userID)
         {
-            List<User> users = ReadUsers();
-            User u = FindUserInList(userID, users);
-            return u;
+            string query = $"SELECT UserId, FirstName, LastName, PersonNum, Email, PostAdress, PostNum, City FROM Users WHERE UserId = '{userID}'";
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                User u = null;
+                using (SqlCommand commandTwo = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = commandTwo.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string firstName = reader.GetString(1);
+                                string lastName = reader.GetString(2);
+                                string personNum = reader.GetString(3);
+                                string eMail = reader.GetString(4);
+                                string postAdress = reader.GetString(5);
+                                string postNum = reader.GetString(6);
+                                string city = reader.GetString(7);
+
+                                //  Book book1 = new Book(title, author, genre, isbn);
+
+                                u = new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID);
+                            }
+                            return u;
+                        }
+
+                    }
+                    catch (SqlException e)
+                    {
+                        Console.WriteLine("Error: " + e.ToString());
+                        return u;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
         }
         public static void Create(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city)
         {
-            Guid userID;
-            List<User> users = ReadUsers();
+            string query = $"INSERT INTO Users (FirstName, LastName, PersonNum, Email, PostAdress, PostNum, City) VALUES('{firstName}', '{lastName}', '{personNum}', '{eMail}', '{postAdress}', '{postNum}', '{city}')";
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+
+                SqlCommand commandOne = new SqlCommand(query, connection);
+                try
+                {
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
 
 
-            System.Guid guid = System.Guid.NewGuid();
-            
-            userID = guid;
-            users.Add(new User(firstName, lastName, personNum, eMail, postAdress, postNum, city, userID));
-            SaveUsers(users);
-
-            
         }
         public static void Update(string firstName, string lastName, string personNum, string eMail, string postAdress, string postNum, string city, Guid userID)
         {
-            List<User> users = ReadUsers();
-            User u = FindUserInList(userID, users);
+            string query = $"UPDATE Users SET FirstName = '{firstName}', LastName = '{lastName}', PersonNum = '{personNum}', Email = '{eMail}', PostAdress = '{postAdress}', PostNum = '{postNum}', City = '{city}' WHERE UserId = '{userID}'";
 
-            u.firstName = firstName;
-            u.lastName = lastName;
-            u.personNum = personNum;
-            u.eMail = eMail;
-            u.postAdress = postAdress;
-            u.postNum = postNum;
-            u.city = city;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
 
-            SaveUsers(users);
+                SqlCommand commandOne = new SqlCommand(query, connection);
+                try
+                {
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
         }
         public static void Delete(Guid userID)
         {
-            List<User> users = ReadUsers();
-            User u = FindUserInList(userID, users);
-            users.Remove(u);
-            SaveUsers(users);
+            string delQuery = $"DELETE FROM Users WHERE UserId = '{userID}'";
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+
+                SqlCommand commandOne = new SqlCommand(delQuery, connection);
+                try
+                {
+                    connection.Open();
+                    commandOne.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Error Generated. Details: " + e.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
         }
     }
 }
